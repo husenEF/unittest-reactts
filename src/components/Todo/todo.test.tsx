@@ -1,13 +1,11 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 // import renderer from 'react-test-renderer';
 import renderer from "react-test-renderer";
 
 import Todo from "./index";
 
-afterEach(() => {
-  cleanup();
-});
+afterEach(cleanup);
 
 test("render Todo completed", () => {
   const todo = { name: "makan", status: true, id: 1 };
@@ -38,4 +36,13 @@ test("snapshot Todo", () => {
     .create(<Todo todo={todo} onClick={(id) => {}} />)
     .toJSON();
   expect(treeElement).toMatchSnapshot();
+});
+
+test("call onclick btn todo", () => {
+  const handleClick = jest.fn();
+  const todo = { name: "makan", status: true, id: 1 };
+
+  render(<Todo todo={todo} onClick={handleClick} />);
+  fireEvent.click(screen.getByTestId("btn-1"));
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });
