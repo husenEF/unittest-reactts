@@ -10,7 +10,7 @@ const Todo: FC<TodoProps> = (props) => {
     onClick,
   } = props;
   const text = status ? <del>{name}</del> : name;
-  if (name === "") return <p data-testid={`todo-${id}`}>no text</p>;
+  if (name === "") return <p>no text</p>;
   // return <p data-testid={`todo-${id}`}>{text}</p>;
 
   return (
@@ -21,14 +21,6 @@ const Todo: FC<TodoProps> = (props) => {
       </button>
     </div>
   );
-  // return (
-  //   <div style={{ display: "flex", width: 300, flexDirection: "row" }}>
-  //     <p data-testid={`todo-${id}`} style={{ marginRight: 10 }}>
-  //       {text}
-  //     </p>
-  //     <button>update</button>
-  //   </div>
-  // );
 };
 
 export default Todo;

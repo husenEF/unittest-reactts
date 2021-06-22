@@ -12,7 +12,7 @@ afterEach(() => {
 test("render Todo completed", () => {
   const todo = { name: "makan", status: true, id: 1 };
 
-  render(<Todo todo={todo} />);
+  render(<Todo todo={todo} onClick={(id) => {}} />);
   const elementTodo = screen.getByTestId("todo-1");
   // console.log({ elementTodo });
   expect(elementTodo).toHaveTextContent("makan");
@@ -23,7 +23,7 @@ test("render Todo completed", () => {
 test("render Todo un-completed", () => {
   const todo = { name: "olah raga", status: false, id: 2 };
 
-  render(<Todo todo={todo} />);
+  render(<Todo todo={todo} onClick={(id) => {}} />);
   const elementTodo = screen.getByTestId("todo-2");
   // console.log({ elementTodo });
   expect(elementTodo).toHaveTextContent("olah raga");
@@ -34,6 +34,8 @@ test("render Todo un-completed", () => {
 test("snapshot Todo", () => {
   const todo = { name: "olah raga", status: true, id: 3 };
 
-  const treeElement = renderer.create(<Todo todo={todo} />).toJSON();
+  const treeElement = renderer
+    .create(<Todo todo={todo} onClick={(id) => {}} />)
+    .toJSON();
   expect(treeElement).toMatchSnapshot();
 });
