@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Button title='Refactory' isError /> 1`] = `
+<button
+  data-testid="btn-loading"
+  disabled={true}
+>
+  loading...
+</button>
+`;
