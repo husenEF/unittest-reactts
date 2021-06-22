@@ -1,0 +1,22 @@
+.item-container {
+  display: flex;
+  flex-direction: "row";
+  min-width: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px rgb(249, 251, 253) solid;
+  padding: 5px;
+}
+.item-container span {
+  flex-grow: 3;
+}
+
+.item-container button {
+  cursor: pointer;
+  flex-grow: 1;
+  background-color: aqua;
+  border: none;
+}
+.item-container button:active {
+  background-color: aquamarine;
+}

@@ -1,13 +1,12 @@
-
 export interface Todo {
-  name: string,
-  status: boolean
-  id: number
+  name: string;
+  status: boolean;
+  id: number;
 }
 export interface TodoList {
-  [index: number]: [Todo]
+  [index: number]: [Todo];
 }
 export interface TodoProps {
-  todo: Todo
+  todo: Todo;
+  onClick: (id: number) => void;
 }
-
