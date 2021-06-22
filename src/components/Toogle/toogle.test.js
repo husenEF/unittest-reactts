@@ -13,6 +13,5 @@ test("Toogle btn click", () => {
 
   fireEvent.click(getByTestId("btn-toogle"));
 
-  expect(firstRender).toHaveTextContent("loading...");
-  //   fireEvent.click(getByTestId(""));
+  expect(firstRender).toHaveTextContent("update");
 });

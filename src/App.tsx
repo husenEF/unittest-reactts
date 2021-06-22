@@ -23,7 +23,7 @@ function App() {
     setData(newTodo);
     // console.log({ newTodo });
   };
-  console.log({ data });
+  // console.log({ data });
   return (
     <div className="App">
       <div className="App-header">
