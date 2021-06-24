@@ -38,11 +38,15 @@ test("snapshot Todo", () => {
   expect(treeElement).toMatchSnapshot();
 });
 
-test("call onclick btn todo", () => {
-  const handleClick = jest.fn();
-  const todo = { name: "makan", status: true, id: 1 };
+test("finish todo", () => {
+  const todo = { name: "olah raga", status: false, id: 3 };
+  const handleClick = jest.fn((e) => {
+    e.status = !e.status;
+    return e;
+  });
 
-  render(<Todo todo={todo} onClick={handleClick} />);
-  fireEvent.click(screen.getByTestId("btn-1"));
-  expect(handleClick).toHaveBeenCalledTimes(1);
+  render(<Todo todo={todo} onClick={handleClick(todo)} />);
+  
+  const elementTodo = screen.getByTestId("todo-3");
+  expect(elementTodo).toContainHTML("del");
 });

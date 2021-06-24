@@ -11,7 +11,6 @@ const Todo: FC<TodoProps> = (props) => {
   } = props;
   const text = status ? <del>{name}</del> : name;
   if (name === "") return <p>no text</p>;
-  // return <p data-testid={`todo-${id}`}>{text}</p>;
 
   return (
     <div className="item-container" data-testid={`todo-${id}`}>
