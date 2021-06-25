@@ -46,7 +46,25 @@ test("finish todo", () => {
   });
 
   render(<Todo todo={todo} onClick={handleClick(todo)} />);
-  
+
   const elementTodo = screen.getByTestId("todo-3");
   expect(elementTodo).toContainHTML("del");
+});
+
+test("click btn", () => {
+  const todo = { name: "olah raga", status: false, id: 3 };
+  const handleClick = jest.fn((e) => {
+    e.status = !e.status;
+    return e;
+  });
+
+  const { getByTestId } = render(
+    <Todo todo={todo} onClick={() => handleClick(todo)} />
+  );
+
+  fireEvent.click(getByTestId("btn-3"));
+  expect(handleClick).toHaveBeenCalledTimes(1);
+  fireEvent.click(getByTestId("btn-3"));
+  fireEvent.click(getByTestId("btn-3"));
+  expect(handleClick).toHaveBeenCalledTimes(3);
 });
